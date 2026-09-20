@@ -10,38 +10,105 @@
         </div>
     </div>
 
-    <div class="home-grid">
-        <a href="#announcements" class="home-card">
-            <div>
-                <div class="home-card-label">ΕΝΗΜΕΡΩΣΗ</div>
-                <h2>Ανακοινώσεις</h2>
+<div class="home-grid">
+
+    <a href="#announcements" class="home-card">
+        <div class="home-card-label">ΕΝΗΜΕΡΩΣΗ</div>
+
+        <div class="home-card-content">
+            <div class="home-card-name">Ανακοινώσεις</div>
+
+            <div class="home-card-description">
                 <p>Πρόγραμμα μαθημάτων, αλλαγές και επίσημες οδηγίες.</p>
             </div>
-            <div class="card-arrow">→</div>
-        </a>
+        </div>
 
-        <a href="#canteen" class="home-card">
-            <div>
-                <div class="home-card-label">ΠΡΟΥΠΟΛΟΓΙΣΜΟΣ</div>
-                <h2>Κυλικείο</h2>
+        <div class="card-arrow">→</div>
+    </a>
+
+    <a href="#canteen" class="home-card">
+        <div class="home-card-label">ΠΡΟΥΠΟΛΟΓΙΣΜΟΣ</div>
+
+        <div class="home-card-content">
+            <div class="home-card-name">Κυλικείο</div>
+
+            <div class="home-card-description">
                 <p>Δείτε τα προϊόντα, τις τιμές και υπολογίστε το καλάθι σου.</p>
             </div>
-            <div class="card-arrow">→</div>
-        </a>
+        </div>
 
-        <a href="#news" class="home-card">
-            <div>
-                <div class="home-card-label">ΑΝΑΚΟΙΝΩΣΕΙΣ</div>
-                <h2>Νέα & Ανακοινώσεις</h2>
-                <p>Φωτογραφίες, σχολικοί αγώνες και εκπαιδευτικές εκδρομές.</p>
+        <div class="card-arrow">→</div>
+    </a>
+
+    <a href="#news" class="home-card">
+        <div class="home-card-label">ΟΝΟΜΑΤΙΚΕΣ ΓΙΟΡΤΕΣ</div>
+
+        <div class="home-card-content">
+            <div class="home-card-name">ΕΟΡΤΟΛΟΓΙΟ</div>
+
+            <div class="home-card-description">
+                <p>Δείτε ποιοί/ες γιορτάζει κάθε μέρα.</p>
             </div>
-            <div class="card-arrow">→</div>
-        </a>
+        </div>
+
+        <div class="card-arrow">→</div>
+    </a>
+
+</div>
+
+
+<div class="countdowns-container">
+
+<div class="saturday-countdown">
+    <div class="countdown-label">
+        ΕΠΟΜΕΝΟ ΣΑΒΒΑΤΟ
     </div>
 
-    <!--
+    <div class="saturday-time">
+        <div>
+            <span id="saturdayDays">0</span>
+            <small>ΗΜΕΡΕΣ</small>
+        </div>
 
-    <h2 class="information-heading">Χρήσιμες Πληροφορίες</h2>
+        <div>
+            <span id="saturdayHours">0</span>
+            <small>ΩΡΕΣ</small>
+        </div>
+
+        <div>
+            <span id="saturdayMinutes">0</span>
+            <small>ΛΕΠΤΑ</small>
+        </div>
+
+        <div>
+            <span id="saturdaySeconds">0</span>
+            <small>ΔΕΥΤ.</small>
+        </div>
+    </div>
+</div>
+
+<div class="school-countdown">
+    <div class="countdown-label" id="schoolCountdownLabel">
+        ΕΠΟΜΕΝΗ ΣΧΟΛΙΚΗ ΑΡΓΙΑ
+    </div>
+
+    <div class="countdown-days" id="schoolCountdownDays">
+        0
+    </div>
+
+    <div class="countdown-days-text" id="schoolCountdownDaysText">
+        ΗΜΕΡΕΣ
+    </div>
+
+    <div class="countdown-date" id="schoolCountdownDate"></div>
+</div>
+
+</div>
+    
+
+<!-- add later
+
+<h2 class="information-heading">Χρήσιμες Πληροφορίες</h2>
     <div class="info-list">
         <div class="info-card">
             <strong>Ωράριο Λειτουργίας</strong>
