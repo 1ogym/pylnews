@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>1oGymPylNews</title>
+    <meta name="description" content="1oGymPylNews">
+
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="1oGymPylNews">
+    <meta property="og:title" content="1oGymPylNews">
+    <meta property="og:description" content="Μαθητική ενημέρωση για τα νέα, τις ανακοινώσεις και τη ζωή του σχολείου.">
+    <meta property="og:image" content="https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/websrc/share-banner.png">
+    <meta property="og:url" content="https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+
+        <div class="header-content">
+
+            <a href="#home" class="site-brand">
+                <div class="site-name">1oGymPylNews</div>
+            </a>
+
+            <nav id="mainNav" class="main-nav">
+
+                <a href="#home" data-page="home">
+                    Αρχική
+                </a>
+
+                <a href="#announcements" data-page="announcements">
+                    Ανακοινώσεις & Νέα
+                </a>
+
+                <a href="#canteen" data-page="canteen">
+                    Κυλικείο
+                </a>
+
+                <a href="#news" data-page="news">
+                   Γιορτές
+                </a>
+
+            </nav>
+
+            <div class="header-actions">
+
+                <button
+                    id="themeToggle"
+                    class="theme-button"
+                    type="button">
+                    Dark
+                </button>
+
+                <button
+                    id="menuToggle"
+                    class="menu-button"
+                    type="button"
+                    aria-label="Άνοιγμα μενού"
+                    aria-expanded="false">
+                    Menu
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <div class="announcement-bar">
+        <span>Αυτή η ιστοσελίδα είναι μια ανεπίσημη μαθητική πρωτοβουλία για την ενημέρωση των μαθητών σχετικά με τα νέα του σχολείου.</span>
+    </div>
+
+
+    <main id="pageContent" class="page-content">
+        <!-- Page content is loaded here -->
+    </main>
+
+
+    <footer class="site-footer">
+
+        <strong>1oGymnPylNews</strong>
+
+        <div class="footer-small">
+            1ο Γυμνάσιο Πυλαίας
+        </div>
+
+    </footer>
+
+
+    <div
+        id="mobileCartBar"
+        class="mobile-cart-bar"
+        aria-hidden="true">
+
+        <div>
+            <span id="mobileCartCount">0 προϊόντα</span>
+        </div>
+
+        <strong id="mobileCartTotal">
+            €0.00
+        </strong>
+
+        <button
+            id="mobileCartOpen"
+            type="button">
+            Καλάθι
+        </button>
+
+    </div>
+
+
+    <div
+        id="mobileCartOverlay"
+        class="mobile-cart-overlay">
+    </div>
+
+
+    <section
+        id="mobileCartSheet"
+        class="mobile-cart-sheet"
+        aria-hidden="true">
+
+        <div class="cart-sheet-header">
+
+            <div>
+                <div class="small-label">
+                    ΚΥΛΙΚΕΙΟ
+                </div>
+
+                <h2>
+                    Το καλάθι σου
+                </h2>
+            </div>
+
+            <button
+                id="mobileCartClose"
+                class="close-button"
+                type="button"
+                aria-label="Κλείσιμο">
+                ×
+            </button>
+
+        </div>
+
+        <div
+            id="mobileCartItems"
+            class="cart-items">
+        </div>
+
+        <div class="cart-sheet-footer">
+
+            <div class="cart-total-row">
+
+                <span>
+                    Σύνολο
+                </span>
+
+                <strong id="mobileSheetTotal">
+                    €0.00
+                </strong>
+
+            </div>
+
+            <button
+                id="mobileClearCart"
+                class="clear-cart-button"
+                type="button">
+                Άδειασμα καλαθιού
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <script src="js/app.js"></script>
+
+</body>
+</html>
