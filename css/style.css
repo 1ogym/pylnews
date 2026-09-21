@@ -212,7 +212,7 @@ body.cart-open {
     font-size: 0.72rem;
     font-weight: 900;
     letter-spacing: 0.12em;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
 
     margin-bottom: 10px;
 }

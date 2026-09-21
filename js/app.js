@@ -15,6 +15,7 @@ const products = {
     tyropita: { name: "Τυρόπιτα", price: 1.00, quantity: 0 },
     patatopita: { name: "Πατάτοπίτα", price: 1.00, quantity: 0 },
     kotopita: { name: "Κοτόπιτα", price: 1.50, quantity: 0 },
+    pitsa:{ name: "Πίτσα", price: 1.40, quantity: 0 },
     pitsadipli: { name: "Πίτσα Διπλή", price: 2.00, quantity: 0 },
     mesogeiako: { name: "Μεσογειακό", price: 1.80, quantity: 0 },
     strifto: { name: "Στριφτό", price: 1.20, quantity: 0 },
