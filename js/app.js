@@ -20,7 +20,7 @@ const products = {
     mesogeiako: { name: "Μεσογειακό", price: 1.80, quantity: 0 },
     strifto: { name: "Στριφτό", price: 1.20, quantity: 0 },
     rizogofreta: { name: "Ριζόγκοφρετες", price: 1.00, quantity: 0 },
-    katisokolata: { name: "Τορτίγια/Τοστ Σοκολάτα", price: 1.20, quantity: 0 },
+    katisokolata: { name: "Σάντουιτς Γλυκό", price: 1.50, quantity: 0 },
     mpara: { name: "Μπάρα", price: 1.00, quantity: 0 },
     pasteli: { name: "Παστέλι", price: 0.60, quantity: 0 },
     mirada: { name: "Μιράντα", price: 0.60, quantity: 0 },
