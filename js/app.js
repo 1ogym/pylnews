@@ -269,11 +269,8 @@ async function loadPage(pageName) {
             pageContent.innerHTML = html;
         }
 
-        /*
-            home.html is inserted above.
-            The countdown elements now exist,
-            so initialize the countdown here.
-        */
+        initHeroCarousel();
+
         updateCountdown();
 
         updateActiveNavigation(pageName);
@@ -298,7 +295,7 @@ async function loadPage(pageName) {
                     <div class="error-card">
                         <div class="small-label">ΣΦΑΛΜΑ</div>
                         <h1>Η σελίδα δεν φορτώθηκε.</h1>
-                        <p>Ελέγξτε ότι το site λειτουργεί μέσα από έναν τοπικό server.</p>
+                        <p>Δεν μπορεί να εμφανιστεί η σελίδα εκτώς αν πάει κάτι πάρα μα πάρα πολύ λάθος. Δεν ξέρω τι έκανες.</p>
                     </div>
                 </section>
             `;
@@ -944,4 +941,121 @@ function updateSaturdayCountdown() {
     hoursElement.textContent = hours;
     minutesElement.textContent = minutes;
     secondsElement.textContent = seconds;
+}
+
+/* =====================================
+   HERO CAROUSEL
+===================================== */
+
+function initHeroCarousel() {
+    const carousel = document.querySelector("#heroCarousel");
+
+    if (!carousel || carousel.dataset.initialized === "true") {
+        return;
+    }
+
+    carousel.dataset.initialized = "true";
+
+    const track = carousel.querySelector(".hero-track");
+    const slides = carousel.querySelectorAll(".hero-slide");
+    const dots = carousel.querySelectorAll(".hero-dot");
+
+    if (!track || slides.length === 0 || dots.length === 0) {
+        return;
+    }
+
+    let currentIndex = 0;
+    let autoplay;
+
+    const interval = 5000;
+
+    function goToSlide(index) {
+        currentIndex = (index + slides.length) % slides.length;
+
+        track.scrollTo({
+            left: slides[currentIndex].offsetLeft,
+            behavior: "smooth"
+        });
+
+        updateDots();
+    }
+
+    function updateDots() {
+        dots.forEach((dot, index) => {
+            dot.classList.toggle("active", index === currentIndex);
+        });
+    }
+
+    function updateCurrentSlide() {
+        const slideWidth = track.clientWidth;
+
+        if (slideWidth === 0) return;
+
+        currentIndex = Math.round(track.scrollLeft / slideWidth);
+
+        currentIndex = Math.max(
+            0,
+            Math.min(currentIndex, slides.length - 1)
+        );
+
+        updateDots();
+    }
+
+    function startAutoplay() {
+        stopAutoplay();
+
+        autoplay = setInterval(() => {
+            if (!document.hidden) {
+                goToSlide(currentIndex + 1);
+            }
+        }, interval);
+    }
+
+    function stopAutoplay() {
+        clearInterval(autoplay);
+    }
+
+    function restartAutoplay() {
+        stopAutoplay();
+        startAutoplay();
+    }
+
+    // Dot navigation
+    dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+            goToSlide(index);
+            restartAutoplay();
+        });
+    });
+
+    // Update active dot after manual swipe
+    track.addEventListener("scroll", updateCurrentSlide);
+
+    // Pause when the user interacts
+    carousel.addEventListener("mouseenter", stopAutoplay);
+    carousel.addEventListener("mouseleave", startAutoplay);
+
+    carousel.addEventListener("focusin", stopAutoplay);
+    carousel.addEventListener("focusout", startAutoplay);
+
+    // Pause while the page is hidden
+    document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+            stopAutoplay();
+        } else {
+            startAutoplay();
+        }
+    });
+
+    // Keep the current slide aligned after resizing
+    window.addEventListener("resize", () => {
+        track.scrollTo({
+            left: slides[currentIndex].offsetLeft,
+            behavior: "auto"
+        });
+    });
+
+    // Start
+    updateDots();
+    startAutoplay();
 }
