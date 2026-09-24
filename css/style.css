@@ -1526,6 +1526,8 @@ body.dark .announcement-bar {
     .announcement-card,
     .news-card,
     .product-card,
+    .product-section-header,
+    .canteen-text,
     .image-frame img {
         transition:
             transform 0.25s ease,
@@ -1955,5 +1957,116 @@ body.dark .hero-image {
     .hero-copy .primary-button,
     .hero-image img {
         transition: none;
+    }
+}
+
+/* =========================
+   DAILY SUMMARY
+========================= */
+
+
+.daily-summary {
+    padding: 28px;
+    text-align: left;
+}
+
+.summary-header {
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--line);
+}
+
+.summary-header h1 {
+    margin: 8px 0;
+    font-size: clamp(24px, 4vw, 32px);
+    line-height: 1.25;
+    color: var(--text);
+}
+
+.summary-date {
+    display: block;
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.summary-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.summary-item {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.summary-item:first-child {
+    padding-top: 0;
+}
+
+.summary-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.summary-label {
+    display: inline-block;
+    margin-bottom: 8px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--muted);
+}
+
+.summary-item h3 {
+    margin: 0 0 8px;
+    font-size: 19px;
+    font-weight: 800;
+    line-height: 1.35;
+    color: var(--text);
+}
+
+.summary-item p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--muted);
+}
+
+.summary-item strong {
+    color: var(--text);
+}
+
+.summary-tomorrow {
+    margin-top: 8px;
+    padding: 18px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--surface-soft);
+}
+
+.summary-note {
+    margin-top: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+    .daily-summary {
+        padding: 20px;
+    }
+
+    .summary-item h3 {
+        font-size: 17px;
+    }
+
+    .summary-item p {
+        font-size: 14px;
     }
 }
