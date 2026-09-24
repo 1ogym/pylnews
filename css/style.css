@@ -978,8 +978,28 @@ body.dark .clear-cart-button:hover {
         padding: 12px 18px;
     }
 
+    /* Keep the mobile controls in the header's flex layout.
+       This preserves the header's vertical padding and prevents overlap. */
+    .header-actions {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 10px;
+        position: static;
+    }
+
+    .theme-button {
+        display: inline-flex !important;
+        position: static !important;
+        right: auto !important;
+        order: 1;
+    }
+
     .menu-button {
         display: inline-flex;
+        position: static;
+        order: 2;
     }
 
     /* Mobile Menu Dropdown */
@@ -1019,18 +1039,6 @@ body.dark .clear-cart-button:hover {
         align-items: center;
         padding: 12px 18px;
         font-size: 1rem;
-    }
-
-    .welcome-card {
-        grid-template-columns: 1fr;
-        min-height: auto;
-        padding: 30px 24px;
-        gap: 20px;
-    }
-
-    .welcome-card p {
-        font-size: 0.98rem;
-        margin-bottom: 20px;
     }
 
     .home-grid {
@@ -1470,7 +1478,8 @@ body.dark .announcement-bar {
     .welcome-card,
     .school-countdown,
     .saturday-countdown,
-    .section-heading {
+    .section-heading,
+    .hero-carousel{
         animation: wp-fade-up 0.55s ease both;
     }
 

@@ -980,6 +980,14 @@ body.dark .clear-cart-button:hover {
 
     .menu-button {
         display: inline-flex;
+        position: absolute;
+        right: 12px;
+    }
+
+    .theme-button { 
+        display: inline-flex !important;
+        right: 12px !important;
+        position: absolute !important;
     }
 
     /* Mobile Menu Dropdown */
@@ -1019,18 +1027,6 @@ body.dark .clear-cart-button:hover {
         align-items: center;
         padding: 12px 18px;
         font-size: 1rem;
-    }
-
-    .welcome-card {
-        grid-template-columns: 1fr;
-        min-height: auto;
-        padding: 30px 24px;
-        gap: 20px;
-    }
-
-    .welcome-card p {
-        font-size: 0.98rem;
-        margin-bottom: 20px;
     }
 
     .home-grid {
@@ -1428,5 +1424,523 @@ body.dark .announcement-bar {
     .countdowns-container {
         flex-direction: column;
         gap: 0;
+    }
+}
+
+/* =========================================================
+   ANIMATIONS ONLY
+   Original colors, sizing, spacing, radius and layout preserved.
+========================================================= */
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+
+    @keyframes wp-fade-up {
+        from {
+            opacity: 0;
+            transform: translateY(14px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes wp-fade-in {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes wp-soft-pop {
+        0% {
+            opacity: 0;
+            transform: scale(0.97);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    /* Page content enters smoothly */
+    .welcome-card,
+    .school-countdown,
+    .saturday-countdown,
+    .section-heading {
+        animation: wp-fade-up 0.55s ease both;
+    }
+
+    .home-card,
+    .info-card,
+    .announcement-card,
+    .news-card {
+        animation: wp-fade-up 0.5s ease both;
+    }
+
+    .home-card:nth-child(2),
+    .info-card:nth-child(2),
+    .announcement-card:nth-child(2),
+    .news-card:nth-child(2) {
+        animation-delay: 70ms;
+    }
+
+    .home-card:nth-child(3),
+    .info-card:nth-child(3),
+    .announcement-card:nth-child(3),
+    .news-card:nth-child(3) {
+        animation-delay: 140ms;
+    }
+
+    .home-card:nth-child(4),
+    .info-card:nth-child(4),
+    .announcement-card:nth-child(4),
+    .news-card:nth-child(4) {
+        animation-delay: 210ms;
+    }
+
+    .product-card {
+        animation: wp-fade-up 0.4s ease both;
+    }
+
+    .product-card:nth-child(2) { animation-delay: 50ms; }
+    .product-card:nth-child(3) { animation-delay: 100ms; }
+    .product-card:nth-child(4) { animation-delay: 150ms; }
+    .product-card:nth-child(5) { animation-delay: 200ms; }
+
+    /* Gentle lift on hover; existing hover styles remain in effect */
+    .home-card,
+    .info-card,
+    .announcement-card,
+    .news-card,
+    .product-card,
+    .image-frame img {
+        transition:
+            transform 0.25s ease,
+            box-shadow 0.25s ease,
+            opacity 0.25s ease;
+    }
+
+    .info-card:hover,
+    .announcement-card:hover,
+    .news-card:hover {
+        transform: translateY(-3px);
+    }
+
+    .product-card:hover {
+        transform: translateY(-3px);
+    }
+
+    .image-frame img {
+        will-change: transform;
+    }
+
+    .image-frame:hover img {
+        transform: scale(1.035);
+    }
+
+    /* Small, smooth feedback for interactive controls */
+    .primary-button,
+    .secondary-button,
+    .clear-cart-button,
+    .theme-button,
+    .menu-button,
+    .quantity-controls button,
+    .close-button,
+    .mobile-cart-bar button,
+    .main-nav a {
+        transition:
+            transform 0.18s ease,
+            background-color 0.2s ease,
+            color 0.2s ease,
+            border-color 0.2s ease,
+            box-shadow 0.2s ease;
+    }
+
+    .primary-button:hover,
+    .secondary-button:hover,
+    .clear-cart-button:hover {
+        transform: translateY(-2px);
+    }
+
+    .primary-button:active,
+    .secondary-button:active,
+    .clear-cart-button:active,
+    .theme-button:active,
+    .menu-button:active,
+    .quantity-controls button:active,
+    .close-button:active,
+    .mobile-cart-bar button:active {
+        transform: scale(0.96);
+    }
+
+    .main-nav a:hover {
+        transform: translateY(-1px);
+    }
+
+    /* Smooth appearance for cart contents and announcement text */
+    .cart-item {
+        animation: wp-fade-in 0.22s ease both;
+    }
+
+    .mobile-cart-bar.visible {
+        animation: wp-fade-up 0.28s ease both;
+    }
+
+    .announcement-bar span {
+        will-change: transform;
+    }
+
+    /* Focus visibility without changing the existing design */
+    button:focus-visible,
+    a:focus-visible {
+        outline-offset: 3px;
+    }
+}
+
+/* Disable added motion when requested by the user's device */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* =====================================
+   HERO CAROUSEL
+===================================== */
+
+.hero-carousel {
+    position: relative;
+    width: 100%;
+    margin: 24px 0;
+    overflow: hidden;
+
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+}
+
+/* Sliding track */
+.hero-track {
+    display: flex;
+    width: 100%;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+}
+
+.hero-track::-webkit-scrollbar {
+    display: none;
+}
+
+/* Individual slides */
+.hero-slide {
+    flex: 0 0 100%;
+    min-width: 100%;
+
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: center;
+
+    gap: 48px;
+    padding: 52px;
+
+    min-height: 380px;
+
+    box-sizing: border-box;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+
+/* =====================================
+   HERO TEXT
+===================================== */
+
+.hero-copy {
+    min-width: 0;
+}
+
+.hero-copy .eyebrow {
+    display: inline-block;
+
+    margin-bottom: 14px;
+
+    color: var(--blue);
+
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    line-height: 1.2;
+}
+
+.hero-copy h1 {
+    margin: 0 0 18px;
+
+    color: var(--text);
+
+    font-size: clamp(30px, 3.5vw, 46px);
+    font-weight: 900;
+    line-height: 1.12;
+    letter-spacing: -1.5px;
+}
+
+.hero-copy h1 span {
+    display: block;
+    color: var(--blue);
+}
+
+.hero-copy p {
+    max-width: 500px;
+
+    margin: 0 0 26px;
+
+    color: var(--muted);
+
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.7;
+}
+
+/* =====================================
+   HERO BUTTON
+===================================== */
+
+.hero-copy .primary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 20px;
+
+    background: var(--blue);
+    color: #ffffff;
+
+    border: 1px solid var(--blue);
+    border-radius: 12px;
+
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1;
+
+    text-decoration: none;
+
+    box-shadow: 0 6px 18px rgba(36, 107, 250, 0.18);
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.hero-copy .primary-button:hover {
+    background: var(--blue-dark);
+    border-color: var(--blue-dark);
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 9px 22px rgba(36, 107, 250, 0.25);
+}
+
+.hero-copy .primary-button:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* =====================================
+   HERO IMAGE
+===================================== */
+
+.hero-image {
+    width: 100%;
+    height: 270px;
+
+    overflow: hidden;
+
+    background: var(--surface-soft);
+
+    border: 1px solid var(--line);
+    border-radius: 18px;
+}
+
+.hero-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+.hero-slide:hover .hero-image img {
+    transform: scale(1.035);
+}
+
+/* =====================================
+   CAROUSEL DOTS
+===================================== */
+
+.hero-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    padding: 0 0 22px;
+}
+
+.hero-dot {
+    width: 9px;
+    height: 9px;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 999px;
+
+    background: var(--muted);
+
+    opacity: 0.3;
+
+    cursor: pointer;
+
+    transition:
+        width 0.3s ease,
+        opacity 0.3s ease,
+        background-color 0.3s ease,
+        transform 0.2s ease;
+}
+
+.hero-dot:hover {
+    opacity: 0.55;
+    transform: scale(1.08);
+}
+
+.hero-dot.active {
+    width: 26px;
+
+    background: var(--blue);
+
+    opacity: 1;
+}
+
+/* =====================================
+   DARK MODE
+===================================== */
+
+body.dark .hero-carousel {
+    background: var(--surface);
+    border-color: var(--line);
+}
+
+body.dark .hero-image {
+    background: var(--surface-soft);
+    border-color: var(--line);
+}
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 700px) {
+
+    .hero-carousel {
+        margin: 20px 0;
+        border-radius: 20px;
+    }
+
+    .hero-slide {
+        grid-template-columns: 1fr;
+
+        gap: 24px;
+
+        padding: 30px 24px 22px;
+
+        min-height: auto;
+    }
+
+    .hero-copy .eyebrow {
+        margin-bottom: 12px;
+        font-size: 11px;
+        letter-spacing: 1.2px;
+    }
+
+    .hero-copy h1 {
+        margin-bottom: 15px;
+
+        font-size: clamp(27px, 7vw, 36px);
+        line-height: 1.13;
+        letter-spacing: -1px;
+    }
+
+    .hero-copy p {
+        margin-bottom: 22px;
+
+        font-size: 14px;
+        line-height: 1.65;
+    }
+
+    .hero-copy .primary-button {
+        padding: 11px 17px;
+        font-size: 13px;
+    }
+
+    .hero-image {
+        height: 210px;
+        border-radius: 15px;
+    }
+
+    .hero-dots {
+        gap: 8px;
+        padding-bottom: 20px;
+    }
+}
+
+/* =====================================
+   SMALL PHONES
+===================================== */
+
+@media (max-width: 380px) {
+
+    .hero-slide {
+        gap: 20px;
+        padding: 25px 18px 20px;
+    }
+
+    .hero-copy h1 {
+        font-size: 28px;
+    }
+
+    .hero-image {
+        height: 175px;
+    }
+}
+
+/* =====================================
+   REDUCED MOTION
+===================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-track {
+        scroll-behavior: auto;
+    }
+
+    .hero-dot,
+    .hero-copy .primary-button,
+    .hero-image img {
+        transition: none;
     }
 }
